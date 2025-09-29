@@ -5,11 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -20,6 +16,9 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Show the splash layout
+        setContentView(R.layout.activity_splash);
+
         new Handler().postDelayed(() -> {
             FirebaseAuth auth = FirebaseAuth.getInstance();
             if (auth.getCurrentUser() != null) {
@@ -28,21 +27,21 @@ public class SplashActivity extends AppCompatActivity {
                 db.collection("users").document(auth.getUid()).get()
                         .addOnSuccessListener(doc -> {
                             if (doc.exists()) {
-                                boolean approved = doc.getBoolean("approved");
+                                Boolean approved = doc.getBoolean("approved");
                                 String role = doc.getString("role");
 
-                                if (!approved) {
+                                if (approved == null || !approved) {
                                     Toast.makeText(this, "Wait for admin approval!", Toast.LENGTH_LONG).show();
                                     FirebaseAuth.getInstance().signOut();
                                     startActivity(new Intent(this, LoginActivity.class));
                                 } else {
-                                    if (role.equals("admin")) {
+                                    if ("admin".equals(role)) {
                                         startActivity(new Intent(this, AdminDashboardActivity.class));
-                                    } else if (role.equals("user")) {
+                                    } else if ("user".equals(role)) {
                                         startActivity(new Intent(this, UserDashboardActivity.class));
-                                    } else if (role.equals("authority")) {
+                                    } else if ("authority".equals(role)) {
                                         startActivity(new Intent(this, AuthorityDashboardActivity.class));
-                                    } else if (role.equals("department")) {
+                                    } else if ("department".equals(role)) {
                                         startActivity(new Intent(this, DepartmentDashboardActivity.class));
                                     }
                                 }
@@ -54,6 +53,6 @@ public class SplashActivity extends AppCompatActivity {
                 startActivity(new Intent(SplashActivity.this, LoginActivity.class));
                 finish();
             }
-        }, 7000); // 2 sec delay
+        }, 3000); // 3 seconds
     }
 }

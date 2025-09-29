@@ -41,6 +41,7 @@ dependencies {
 
     // UI
     implementation 'androidx.recyclerview:recyclerview:1.3.2'
+    implementation libs.firebase.database
 
     // Testing
     testImplementation libs.junit

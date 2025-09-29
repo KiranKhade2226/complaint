@@ -1,35 +1,129 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:padding="20dp"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@drawable/bg">
 
-    <EditText
-        android:id="@+id/etEmail"
-        android:hint="Email"
+    <!-- Floating Rounded Login Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/loginCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress" />
+        android:layout_margin="24dp"
+        app:cardCornerRadius="28dp"
+        app:cardElevation="18dp"
+        app:cardUseCompatPadding="true"
+        app:cardBackgroundColor="#CC1E1E1E">
 
-    <EditText
-        android:id="@+id/etPassword"
-        android:hint="Password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="28dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/btnLogin"
-        android:text="Login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp" />
+            <!-- Title -->
+            <TextView
+                android:text="Login"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                android:layout_marginBottom="24dp"
+                android:shadowColor="#80000000"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/btnRegister"
-        android:text="register"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp" />
+            <!-- Email Field -->
+            <EditText
+                android:id="@+id/etEmail"
+                android:hint="Email"
+                android:textColor="@android:color/black"
+                android:textColorHint="#66000000"
+                android:inputType="textEmailAddress"
+                android:background="@drawable/edittext_white_bg"
+                android:padding="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="16dp" />
 
-</LinearLayout>
+            <!-- Password Field -->
+            <EditText
+                android:id="@+id/etPassword"
+                android:hint="Password"
+                android:textColor="@android:color/black"
+                android:textColorHint="#66000000"
+                android:inputType="textPassword"
+                android:background="@drawable/edittext_white_bg"
+                android:padding="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Remember Me + Forgot Password -->
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="20dp">
+
+                <CheckBox
+                    android:id="@+id/cbRemember"
+                    android:text="Remember Me"
+                    android:textColor="@android:color/white"
+                    android:buttonTint="@android:color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:shadowColor="#80000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="3" />
+
+                <TextView
+                    android:id="@+id/tvForgotPassword"
+                    android:text="Forgot Password"
+                    android:textColor="#FFBB86FC"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:shadowColor="#80000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="4" />
+            </LinearLayout>
+
+            <!-- Rounded Login Button -->
+            <Button
+                android:id="@+id/btnLogin"
+                android:text="Log In"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:background="@drawable/btn_rounded_white"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="20dp"
+                android:elevation="8dp"
+                android:translationZ="8dp" />
+
+            <!-- Register Link -->
+            <TextView
+                android:id="@+id/tvRegister"
+                android:text="Don’t have an account? Register"
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:shadowColor="#80000000"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="3" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

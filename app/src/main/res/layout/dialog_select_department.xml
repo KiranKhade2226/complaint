@@ -2,7 +2,8 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg">
 
     <Spinner
         android:id="@+id/spinnerDepartments"

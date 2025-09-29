@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "73770824429",
-    "project_id": "complaint-b9cbc",
-    "storage_bucket": "complaint-b9cbc.firebasestorage.app"
+    "project_number": "710892980575",
+    "project_id": "complaint-5e3fb",
+    "storage_bucket": "complaint-5e3fb.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:73770824429:android:5e96e152dcf1eb280b12e4",
+        "mobilesdk_app_id": "1:710892980575:android:11b3db2b30889aef874eea",
         "android_client_info": {
           "package_name": "com.sk.complaint"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCQNPUYePdO2AgktEdl3_zVp6Kmuoo72HE"
+          "current_key": "AIzaSyCiWGZpl2UTAQhG7l4kIXK0XuSbWtqRV8Q"
         }
       ],
       "services": {
